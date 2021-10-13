@@ -72,7 +72,7 @@ public class Juego extends Canvas implements Runnable{
     @Override
     public void run() {
         
-        final int NS_POR_SEGUNDO= 1000000000;
+        final int NS_POR_SEGUNDO = 1000000000;
         final byte APS_OBJETIVO = 60;
         final double NS_POR_ACTUALIZACION = NS_POR_SEGUNDO / APS_OBJETIVO;
         

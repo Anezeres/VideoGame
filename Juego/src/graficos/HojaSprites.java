@@ -28,5 +28,11 @@ public class HojaSprites {
         }
         
     }
+
+    public int getAncho() {
+        return ancho;
+    }
+    
+    
     
 }

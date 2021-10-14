@@ -11,6 +11,12 @@ public class HojaSprites {
     private final int alto;
     public final int[] pixeles;
     
+    //coleccion de hoja de sprites
+    public static HojaSprites campo = new HojaSprites("/texturas/campo.png",320,320);
+    
+    
+    //fin de colecciones de hojas de sprites
+    
     public HojaSprites(final String ruta, final int ancho, final int alto){
         
             this.alto = alto;

@@ -7,6 +7,13 @@ public final class Pantalla {
     
     public final int pixeles[];
     
+    //Temporal
+    
+    private final static int  LADO_SPRITE = 32;
+    private final static int  MASCARA_SPRITE = LADO_SPRITE - 1;
+    
+    //Fin Temporal
+    
     public Pantalla(final int ancho, final int alto){
         this.ancho = ancho;
         this.alto = alto;
@@ -27,17 +34,31 @@ public final class Pantalla {
         for (int y = 0; y < alto; y++) {
             int posicionY = y + compensacionY;
             
-            if(posicionY < 0 || posicionY > alto){
+            if(posicionY < 0 || posicionY >= alto){
                 continue;
             }
             for (int x = 0; x < ancho; x++) {
                 int posicionX = y + compensacionX; 
                 
-                if(posicionX<0 || posicionX>ancho){
+                if(posicionX < 0 || posicionX >= ancho){
                 continue;
                 }
                 
                 //Codigo para redibujar la pantalla
+                //Temporal
+                
+                if(x==MASCARA_SPRITE){
+                    x=0;
+                }
+                if(y==MASCARA_SPRITE){
+                    y=0;
+                }
+                
+                int longitud =(posicionX + posicionY) * ancho;
+                int longitud2 = (x+y)*LADO_SPRITE;
+                
+                
+                pixeles[longitud] = Sprite.cesped.pixeles[longitud2];
                 
             }
             

@@ -4,6 +4,7 @@ import control.Teclado;
 import graficos.Pantalla;
 import java.awt.BorderLayout;
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
@@ -16,8 +17,8 @@ import javax.swing.JFrame;
 
 public class Juego extends Canvas implements Runnable{
     
-    private static final int ANCHO = 400;
-    private static final int ALTO=300;
+    private static final int ANCHO = 800;
+    private static final int ALTO=600;
     private static final String NOMBRE = "Juego";
     
     private static int aps = 0;
@@ -25,6 +26,9 @@ public class Juego extends Canvas implements Runnable{
     
     private static int x = 0;
     private static int y = 0;
+    
+    private static int movimientoX = 0;
+    private static int movimientoY = 0;
     
     private static JFrame ventana;
     private static Thread thread;
@@ -85,17 +89,19 @@ public class Juego extends Canvas implements Runnable{
     private void actualizar(){
         teclado.actualizar();
         
+        //Esto se debe modifica si quiero que la pantalla se mueva o no
+        
         if(teclado.arriba){
-            y++;
+            movimientoY--;
         }
         if(teclado.abajo){
-            y--;
+            movimientoY++;
         }
         if(teclado.derecha){
-            x--;
+            movimientoX++;
         }
         if(teclado.izquierda){
-            x++;
+            movimientoX--;
         }
             
         aps++;
@@ -118,6 +124,9 @@ public class Juego extends Canvas implements Runnable{
         
         Graphics g = estrategia.getDrawGraphics();
         g.drawImage(imagen, 0, 0, getWidth(),getHeight(),null);
+        g.setColor(Color.white);
+        g.fillRect(movimientoX, movimientoY, 32, 32);
+        
         g.dispose();
         
         estrategia.show();

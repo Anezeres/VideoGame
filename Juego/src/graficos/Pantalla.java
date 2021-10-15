@@ -48,13 +48,10 @@ public final class Pantalla {
                 
                 
                 
-                if(x<=MASCARA_SPRITE && y<=MASCARA_SPRITE){
-                    System.out.println("x= "+ x+" " + "y= "+y);
-                    System.out.println("posicionX= "+ posicionX+" " + "posicionY= "+posicionY);
-                    System.out.println("Posicion en el array de pixeles"+(posicionX + posicionY * ancho));
-                    pixeles[posicionX + posicionY * ancho] = Sprite.cesped.pixeles[(x&MASCARA_SPRITE)+(y&MASCARA_SPRITE)*LADO_SPRITE];
+
+                pixeles[posicionX + posicionY * ancho] = Sprite.cesped.pixeles[(x&MASCARA_SPRITE)+(y&MASCARA_SPRITE)*LADO_SPRITE];
                 
-                }
+                
                 
             }
             

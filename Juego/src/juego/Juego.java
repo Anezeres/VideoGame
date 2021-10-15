@@ -16,8 +16,8 @@ import javax.swing.JFrame;
 
 public class Juego extends Canvas implements Runnable{
     
-    private static final int ANCHO = 800;
-    private static final int ALTO=600;
+    private static final int ANCHO = 400;
+    private static final int ALTO=300;
     private static final String NOMBRE = "Juego";
     
     private static int aps = 0;

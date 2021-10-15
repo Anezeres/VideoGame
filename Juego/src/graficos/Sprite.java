@@ -24,12 +24,9 @@ public class Sprite{
         this.y = fila * lado;
         this.hoja = hoja;
         
-        int longitud = (x+y)*lado;
-        int longitud2 = ((x+this.x)+(y+this.y))*hoja.getAncho();
-        
         for (int y = 0; y < lado; y++) {
             for (int x = 0; x < lado; x++) {
-                pixeles[longitud] = hoja.pixeles[longitud2]; 
+                pixeles[x+y*lado] = hoja.pixeles[(x+this.x)+(y+this.y)*hoja.getAncho()]; 
                 
             }
             

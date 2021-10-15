@@ -43,22 +43,14 @@ public final class Pantalla {
                 if(posicionX < 0 || posicionX >= ancho){
                 continue;
                 }
-                
                 //Codigo para redibujar la pantalla
                 //Temporal
                 
-                if(x==MASCARA_SPRITE){
-                    x=0;
+                if(x<=MASCARA_SPRITE && y<=MASCARA_SPRITE){
+                    pixeles[posicionX + posicionY * ancho] = Sprite.cesped.pixeles[x+y*LADO_SPRITE];
+                    System.out.println("posicionX: "+" "+x+"posicionY: "+y);
+                
                 }
-                if(y==MASCARA_SPRITE){
-                    y=0;
-                }
-                
-                int longitud =(posicionX + posicionY) * ancho;
-                int longitud2 = (x+y)*LADO_SPRITE;
-                
-                
-                pixeles[longitud] = Sprite.cesped.pixeles[longitud2];
                 
             }
             

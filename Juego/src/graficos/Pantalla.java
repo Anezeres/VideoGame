@@ -38,27 +38,23 @@ public final class Pantalla {
                 continue;
             }
             for (int x = 0; x < ancho; x++) {
-                int posicionX = y + compensacionX; 
+                int posicionX = x + compensacionX; 
                 
                 if(posicionX < 0 || posicionX >= ancho){
                 continue;
                 }
-                
                 //Codigo para redibujar la pantalla
                 //Temporal
                 
-                if(x==MASCARA_SPRITE){
-                    x=0;
+                
+                
+                if(x<=MASCARA_SPRITE && y<=MASCARA_SPRITE){
+                    System.out.println("x= "+ x+" " + "y= "+y);
+                    System.out.println("posicionX= "+ posicionX+" " + "posicionY= "+posicionY);
+                    System.out.println("Posicion en el array de pixeles"+(posicionX + posicionY * ancho));
+                    pixeles[posicionX + posicionY * ancho] = Sprite.cesped.pixeles[(x&MASCARA_SPRITE)+(y&MASCARA_SPRITE)*LADO_SPRITE];
+                
                 }
-                if(y==MASCARA_SPRITE){
-                    y=0;
-                }
-                
-                int longitud =(posicionX + posicionY) * ancho;
-                int longitud2 = (x+y)*LADO_SPRITE;
-                
-                
-                pixeles[longitud] = Sprite.cesped.pixeles[longitud2];
                 
             }
             
